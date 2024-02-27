@@ -61,7 +61,7 @@ class Tarea{//representa en memoria RAM cada una de las tareas
     }
     //metodos
     borrarTarea(){
-        fetch("http://localhost:3000/api-to-do/borrar/" + this.id, {
+        fetch("https://todo-wppi.onrender.com/api-to-do/borrar/" + this.id, {
             method : "DELETE"
         })
         .then(respuesta => respuesta.json())
@@ -74,7 +74,7 @@ class Tarea{//representa en memoria RAM cada una de las tareas
 
     }
     toggleEstado(){
-        return fetch(`http://localhost:3000/api-to-do/actualizar/${this.id}/2`,{
+        return fetch(`https://todo-wppi.onrender.com/api-to-do/actualizar/${this.id}/2`,{
             method : "PUT"
         })
         .then(respuesta => respuesta.json())
@@ -86,7 +86,7 @@ class Tarea{//representa en memoria RAM cada una de las tareas
             let textoTemporal = this.DOM.children[1].value;
 
             if(textoTemporal.trim() != "" && textoTemporal.trim() != this.textoTarea){
-                let {resultado} = await fetch(`http://localhost:3000/api-to-do/actualizar/${this.id}/1`,{
+                let {resultado} = await fetch(`https://todo-wppi.onrender.com/api-to-do/actualizar/${this.id}/1`,{
                                             method : "PUT",
                                             body : JSON.stringify({ tarea : textoTemporal.trim() }),
                                             headers : {
